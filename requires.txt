@@ -1,0 +1,17 @@
+torch
+torchvision
+torchaudio
+jupyter
+einops
+diffusers==0.32.0
+joblib
+scikit-learn
+scikit-image
+pytorch_lightning
+transformers==4.47.1
+opencv-python
+accelerate
+protobuf
+sentencepiece
+pandas
+matplotlib
