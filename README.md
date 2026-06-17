@@ -56,9 +56,9 @@ If you find this work useful, please consider citing our paper:
 
 ```bibtex
 @article{zhan2026simedit,
-  title     = {Conditioning Matters: Stabilizing Inversion and Attention in Diffusion Image Editing},
-  author    = {Zhan, Zheyuan and Li, Hongchen and Wang, Can and Ma, Yinfei and Huang, Mingzhen and Bai, Ruoshi and Chen, Jiawei and Lyu, Siwei and Chen, Defang},
+  title={Conditioning Matters: Stabilizing Inversion and Attention in Diffusion Image Editing},
+  author={Zhan, Zheyuan and Li, Hongchen and Wang, Can and Ma, Yinfei and Huang, Mingzhen and Bai, Ruoshi and Chen, Jiawei and Lyu, Siwei and Chen, Defang},
   journal={arXiv preprint arXiv:2606.14125},
-  year      = {2026}
+  year={2026}
 }
 ```
