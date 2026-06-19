@@ -19,7 +19,7 @@ The implementation is based on `FLUX.1-dev` (via `diffusers`). A GPU with suffic
 
 ## Quick Start
 
-The full pipeline is in [`SimEdit.ipynb`](SimEdit.ipynb). Open it and run the cells in order. It will:
+The full pipeline is in [`code/SimEdit.ipynb`](code/SimEdit.ipynb). Open it and run the cells in order. It will:
 
 - (optionally) generate refined source/target prompts via an LLM,
 - reconstruct the source image from inversion,
@@ -34,20 +34,21 @@ Conditioning refinement calls a vision-language model through the [OpenRouter](h
 os.environ["OPENROUTER_API_KEY"] = "your-key-here"
 ```
 
-This step is optional: you can also skip refinement and run editing with the prompts provided in `Mapping_file_for_PIEBench.json`, or supply your own refined prompts. The system prompt we use for refinement is in `system_prompt.txt`.
+This step is optional: you can also skip refinement and run editing with the prompts provided in [`mappings/Mapping_file_for_PIEBench.json`](mappings/Mapping_file_for_PIEBench.json), or supply your own refined prompts. The system prompt we use for refinement is in [`mappings/system_prompt.txt`](mappings/system_prompt.txt).
 
 ## Repository Contents
 
-| File | Description |
+| Path | Description |
 | --- | --- |
-| `SimEdit.ipynb` | Complete SimEdit pipeline (conditioning refinement + token-wise cross-branch attention control), with reconstruction and editing outputs. |
-| `system_prompt.txt` | System prompt used for conditioning refinement; expands the original prompts with additional image-grounded details. |
-| `Mapping_file_for_PIEBench.json` | Source/target prompt pairs used in our final experiments, generated with our system prompt and Gemini-2.5-Pro. |
-| `CLIP*_mapping.json` | Source/target prompt pairs used to compute the CLIPSim* metric reported in the paper. |
-| `calc_for_L_and_directional_deviation.py` | Estimation of the empirical Lipschitz constant `L` and the directional deviation used in the motivation analysis. |
-| `src/model/` | Model code: diffuser pipeline, attention manipulation, and CLIP utilities. |
-| `src/util/` | Utilities: token alignment (LCS), prompt running, metrics, and attention visualization. |
-| `example.jpg` | Example input image used in the notebook. |
+| `code/SimEdit.ipynb` | Complete SimEdit pipeline (conditioning refinement + token-wise cross-branch attention control), with reconstruction and editing outputs. |
+| `code/calc_for_L_and_directional_deviation.py` | Estimation of the empirical Lipschitz constant `L` and the directional deviation used in the motivation analysis. |
+| `code/src/model/` | Model code: diffuser pipeline, attention manipulation, and CLIP utilities. |
+| `code/src/util/` | Utilities: token alignment (LCS), prompt running, metrics, and attention visualization. |
+| `code/example.jpg` | Example input image used in the notebook. |
+| `mappings/system_prompt.txt` | System prompt used for conditioning refinement; expands the original prompts with additional image-grounded details. |
+| `mappings/Mapping_file_for_PIEBench.json` | Source/target prompt pairs used in our final experiments, generated with our system prompt and Gemini-2.5-Pro. |
+| `mappings/CLIP*_mapping.json` | Source/target prompt pairs used to compute the CLIPSim* metric reported in the paper. |
+| `supplementary/supplementary.pdf` | Supplementary material for the paper. |
 | `requires.txt` | Required Python packages. |
 
 ## Citation

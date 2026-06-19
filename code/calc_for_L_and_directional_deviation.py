@@ -6,10 +6,13 @@ import pandas as pd
 import torch
 import numpy as np
 from tqdm import tqdm
+from pathlib import Path
 
-cache_dir = ['src/model/__pycache__','src/util/__pycache__']
-for dir in cache_dir: 
-    if os.path.exists(dir): shutil.rmtree(dir)
+CODE_DIR = Path(__file__).resolve().parent
+cache_dirs = [CODE_DIR / 'src/model/__pycache__', CODE_DIR / 'src/util/__pycache__']
+for cache_dir in cache_dirs:
+    if cache_dir.exists():
+        shutil.rmtree(cache_dir)
 
 from transformers import BitsAndBytesConfig as TransformersBitsAndBytesConfig
 
@@ -878,4 +881,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
