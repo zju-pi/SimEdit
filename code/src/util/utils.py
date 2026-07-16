@@ -1,3 +1,4 @@
+import os
 import torch
 import torchvision.transforms as T
 from IPython.display import display
@@ -106,10 +107,12 @@ def prompt_embd_aligned_replacement_advanced(target, src, tokenizer_2, padding_m
 
 
 def load_pipe_multi(device_map):
+    model_path = os.environ.get("FLUX_MODEL_PATH", "black-forest-labs/FLUX.1-dev")
+    local_files_only = os.environ.get("FLUX_LOCAL_FILES_ONLY", "0") == "1"
     flux_config = {
-        "pretrained_model_name_or_path": "",
+        "pretrained_model_name_or_path": model_path,
         "torch_dtype": torch.bfloat16,
-        "local_files_only": True
+        "local_files_only": local_files_only
     }
 
     vae = AutoencoderKL.from_pretrained(
